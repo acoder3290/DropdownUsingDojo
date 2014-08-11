@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="myApp/widget/css/main.css">
+</head>
+<body>
+<div id="menuContainer"></div>
+<!-- Configure Dojo -->
+<script>
+    var dojoConfig = (function(){
+        var base = location.href.split("/");
+        base.pop();
+        base = base.join("/");
+        return {
+            async: true,
+            isDebug: true,
+            packages: [{
+                name: "myApp",
+                location: base + "/myApp"
+            }]
+        };
+    })();
+</script>
+<script type="text/javascript" src="lib/dojo/dojo.js"></script>
+<script>
+    require(["dojo/request", "dojo/dom", "dojo/_base/array", "myApp/widget/MenuWidget","myApp/widget/ListWidget", "dojo/domReady!"],
+            function(request, dom, arrayUtil, MenuWidget, ListWidget){
+                request("myApp/data/menu.json", {
+                    handleAs: "json"
+                }).then(function(menus){
+                    var menuContainer = dom.byId("menuContainer");
+                    var menuWidget = new MenuWidget().placeAt(menuContainer);
+                    arrayUtil.forEach(menus, function(menu){
+                        var listWidget = new ListWidget(menu).placeAt(menuWidget);
+                        var subMenuWidget = new MenuWidget().placeAt(listWidget);
+                        arrayUtil.forEach(menu.list, function(subList){
+                            new ListWidget(subList).placeAt(subMenuWidget);
+                        });
+                    });
+                });
+            });
+</script>
+</body>
+</html>
