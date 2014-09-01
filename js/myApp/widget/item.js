@@ -33,6 +33,7 @@ define([
                     domStyle.set(child[0], "display", "none");
                 }
             }
+            console.log(this.itemNode.id);
             evt.stopPropagation();
         }
     });
