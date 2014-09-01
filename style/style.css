@@ -1,15 +1,4 @@
-ul#nav {
-    margin: 0 0 0 200px;
-}
-
-ul.menuWidget a {
-    display: block;
-    color: #fff;
-    font-family: Verdana;
-    font-size: 14px;
-    text-decoration: none;
-}
-
+/*
 ul.menuWidget,
 ul.menuWidget li,
 ul.menuWidget ul {
@@ -35,15 +24,7 @@ ul.menuWidget li {
     padding: 5px 10px;
 }
 
-ul.menuWidget li.hover, ul.menuWidget li:hover {
-    position: relative;
-    z-index: 599;
-    cursor: default;
-    background: #1e7c9a;
-}
-
 ul.menuWidget ul {
-    visibility: hidden;
     position: absolute;
     top: 100%;
     left: 0;
@@ -60,8 +41,4 @@ ul.menuWidget ul li {
 ul.menuWidget ul ul {
     top: -2px;
     left: 100%;
-}
-
-ul.menuWidget li:hover > ul {
-    visibility: visible
-}
+}*/

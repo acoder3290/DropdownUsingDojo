@@ -1,5 +1,0 @@
-[
-    {"name" : "File", "list" : [{"name" : "new"}, {"name" : "open"}] },
-    {"name" : "Edit", "list" : [{"name" : "cut"}, {"name" : "paste"}] },
-    {"name" : "Run", "list" : [{"name" : "run"}, {"name" : "debug"}] }
-]
